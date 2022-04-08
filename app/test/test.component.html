@@ -1,0 +1,38 @@
+<!-- <p>{{countries|json}}</p> -->
+
+  <!-- <div *ngFor="let country of countries">
+    <mat-card class="example-card">
+  <img mat-card-image [src]="country.flag">
+  <mat-card-content>
+   <h4>{{country.name}}</h4>
+   <h4>Population:{{country.population | number:'1.0'}}</h4>
+   <h4>Region:{{country.region}}</h4>
+   <h4>Capital:{{country.capital}}</h4>
+  </mat-card-content>
+  </mat-card>
+</div> -->
+
+<div class="content">
+  <div fxLayout="column wrap" fxLayoutGap="16px grid">
+    <div  fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let country of countries">
+      <mat-card class="mat-elevation-z4">
+<!-- <div  fxLayout="row wrap" fxLayout.xs="row" fxLayoutAlign="space-evenly center">
+  <mat-card  *ngFor="let country of countries"> -->
+  <img mat-card-image [src]="country.flag">
+
+    <mat-card-content>
+      <h2>{{country.name}}</h2>
+      <h4>Population:
+        <span>{{country.population | number:'1.0'}}</span>
+      </h4>
+   <h4>Region:
+    <span>{{country.region}}</span>
+    </h4>
+      <h4>Capital:
+        <span>{{country.capital}}</span>
+      </h4>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>
+</div>

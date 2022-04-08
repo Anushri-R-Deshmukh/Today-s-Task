@@ -1,0 +1,14 @@
+<button mat-flat-button class="btn-margin" color="primary" style=" margin-left: 25%;
+  margin-top:20px;"><span [routerLink]="'/event-dis'">Back</span></button>
+
+<mat-card class="matCard">
+<mat-card class="data">
+ <mat-card-content >
+   <h3>COUNTDOWN TO <strong>{{name | uppercase}}</strong> BIRTHDAY</h3>
+  <h1> {{date}}</h1>
+  </mat-card-content>
+</mat-card>
+<span>
+<p>{{name}} age is: </p>
+<button id="btn" mat-flat-button class="btn-margin" color="accent" ><span [routerLink]="'/planning-page'">Plan Birthday</span></button></span>
+</mat-card>

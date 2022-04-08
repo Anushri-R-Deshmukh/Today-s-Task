@@ -1,0 +1,27 @@
+<!-- <p>model-popup works!</p>
+{{formData|json}}
+{{title}} -->
+  <form [formGroup]="uploadForm"  novalidate>
+
+<div *ngFor="let data of formData; let i = index">{{data}}
+  <!-- <input type="hidden" name="size" value="1000000"> -->
+ <div>
+    <input type="file" name="file" #newValue  multiple class="form-control" (change)="onFileChange($event, i)" >
+<button *ngIf="newValue.value" (click)="reset(newValue)">delete</button>
+ </div>
+
+
+  </div><br> <div >
+            <div *ngIf="uploadForm.invalid">Please select all file</div>
+        </div>
+
+         <button mat-flat-button class="btn-margin" color="accent"  (click)="submit()" >Submit</button>
+
+     <button tabindex="-1" mat-flat-button class="btn-margin" (click)="onClose(false)" color="primary">Close</button>
+</form>
+
+<!-- <button (click)=" onClose(false)" >close</button> -->
+
+{{resData|json}}
+
+

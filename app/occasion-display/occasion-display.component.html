@@ -1,0 +1,13 @@
+<h2 style="text-align: center;">All Occasion related to particular user</h2>
+<div style="display: flex;" >
+
+<mat-card class="data" *ngFor="let item of userData" (click)="addQueryParam(item)">
+ <mat-card-content >
+   <p> {{item.name}}</p>
+   <p>{{item.occasion}}</p>
+  <p (dateChange)="myTimer($event)"> {{item.date}}</p>
+  </mat-card-content>
+</mat-card>
+</div>
+
+

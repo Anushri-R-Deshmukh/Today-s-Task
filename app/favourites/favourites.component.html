@@ -1,0 +1,49 @@
+<!-- <p>favourites works!</p> -->
+<!-- {{userdata|json}} -->
+<h2>Favorite Meals</h2>
+<!-- <div *ngFor="let datas of data">{{datas}}</div> -->
+<ng-container >
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                           <th>Sr No.</th>
+                            <th>Meal Name</th>
+                            <th>Meal Image</th>
+                            <!-- <th>Description</th> -->
+                            <!-- <th>Ingredients</th> -->
+                             <th>Category</th>
+                            <th>Area</th>
+                            <th>Vedio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let datas of userdata; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{datas.title}}</td>
+                            <td><img style="width: 120px;" src="{{datas.imgSrc }}" alt=""></td>
+                            <!-- <td style="width: 25%;">{{datas.recipe}}</td> -->
+                            <th style="width: 12%;">{{datas.category}}</th>
+                            <td style="width: 12%;">{{datas.area}}</td>
+                            <td style="width: 12%;">{{datas.video}}</td>
+
+
+<td>
+
+        <button type="button" mat-raised-button color="primary" (click)="removeItem(datas)" style="margin: 4px;">Remove Favorite</button>
+
+    </td>
+
+                        </tr>
+ <tr>
+                            <td colspan="4"></td>
+                             <td><button routerLink="/meal"mat-raised-button color="accent" >Back</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

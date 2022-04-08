@@ -1,0 +1,18 @@
+.container{
+  height: 100%;
+      margin-top: -50px;
+    color: #fff;
+    background-image: url("/assets/ck.jpg");
+    background-size: 100% ;
+    background-size: cover;
+}
+form{
+  padding-top:16%;
+}
+/* mat-form-field.mat-form-field{
+  color:white;
+} */
+
+input{
+  color:black
+}

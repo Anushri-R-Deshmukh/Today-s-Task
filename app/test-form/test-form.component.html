@@ -1,0 +1,81 @@
+<form [formGroup]="registerForm" (ngSubmit)=" onSubmit()"   >
+
+        <!-- Name -->
+        <mat-form-field >
+          <input type="name" matInput placeholder="Name" formControlName="name"  >
+          <!-- <mat-error>This field is mandatory.</mat-error> -->
+
+ <!-- <div *ngIf="!name.valid && (name.dirty ||name.touched)">
+      <div *ngIf="name.errors.gte" class="error">
+        The number should be greater than {{name.errors.requiredValue}}
+      </div>
+
+    </div> -->
+<div *ngIf="name.invalid && name.touched" class="validation-error">
+				<div *ngIf="name.errors.required" class="error">Name is required.</div></div>
+          <mat-error *ngIf="name.errors.required">
+            Name is required.
+          </mat-error>
+
+</mat-form-field>
+<!-- Date picker  -->
+        <!-- <mat-form-field>
+          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="dob"
+            (dateChange)="date($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+
+
+        <!-- Email -->
+
+        <mat-form-field >
+          <input type="email" matInput placeholder="Email" formControlName="email">
+          <mat-error>This field is mandatory.</mat-error>
+          <mat-error *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">
+           E-mail is required
+          </mat-error>
+        </mat-form-field>
+
+
+        <!--phone-->
+        <mat-form-field >
+            <input type="phone" matInput placeholder="Phone" formControlName="phone">
+            <mat-error>This field is mandatory.</mat-error>
+
+          </mat-form-field>
+
+          <!--address-->
+          <mat-form-field >
+            <input type="address" matInput placeholder="Address" formControlName="address">
+            <mat-error>This field is mandatory.</mat-error>
+
+          </mat-form-field>
+
+<mat-form-field >
+            <input type="age" matInput placeholder="Age" formControlName="age">
+            <mat-error>This field is mandatory.</mat-error>
+
+          </mat-form-field>
+ <mat-form-field>
+            <mat-select formControlName="city" placeholder="select city">
+              <mat-option>None</mat-option>
+              <ng-container *ngFor="let cities of city">
+                <mat-option value="{{cities.id}}">{{cities.value}}</mat-option>
+              </ng-container>
+            </mat-select>
+                      <mat-error>Please select city.</mat-error>
+
+          </mat-form-field>
+
+        <!-- Gender -->
+        <div class="misc-bottom-padding">
+          <mat-label type="radio">Gender:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+
+          </mat-radio-group>
+        </div>
+          <button  mat-raised-button color="accent">Submit</button>
+      </form>

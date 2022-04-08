@@ -1,0 +1,35 @@
+<div >
+     
+       <form class="container">   
+    <!--1st no-->
+    <mat-form-field >
+        <input type="number" matInput placeholder="First Number"  name="num1" [(ngModel)]="num1">
+    </mat-form-field>
+     
+    <!--2nd no-->
+      <mat-form-field >
+        <input type="number" matInput placeholder="Second Number" name="num2" [(ngModel)]="num2">
+      </mat-form-field>
+      
+      <!--Select opt-->
+          
+      <mat-form-field>
+        <mat-label>Select an option</mat-label>
+        <mat-select disableRipple>
+          
+          <mat-option value="1" (click)="addNum()">Addition</mat-option>
+          <mat-option value="2" (click)="subNum()">Substraction</mat-option>
+          <mat-option value="3" (click)="mulNum()">Multiplication</mat-option>
+          <mat-option value="4" (click)="divNum()">Division</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <!--Submit -->
+      <button  mat-raised-button color="accent" (click)="onSubmit()">Submit</button>
+    <br><br><br>
+    
+      <div *ngIf="onSubmitForm == true">Result: {{result}}</div>
+
+    </form> 
+</div>

@@ -1,0 +1,76 @@
+<!-- <p>meal-api works!</p>
+ {{userData|json}}
+<!-- <div *ngFor="let item of userData">{{item.strCategory}}</div> -->
+
+<!-- {{userData|json}} -->
+<mat-card style="width:500px;">
+   <mat-form-field color="primary" class="search">
+    <mat-icon matPrefix>search</mat-icon>
+    <input type="search" matInput placeholder="Search for a particular dish or ingredient">
+  </mat-form-field>
+<button mat-raised-button color="accent" (click)="getMeal()">  Get a randome of meal</button>
+<!-- <mat-card-content>
+   <!-----Categories----->
+    <!-- <h4 class="mb-3"> choose a category :</h4>
+    <div class="emoji__container">
+      <div (click)="GetMealByCategory('Starter')"><span>Starter</span></div>
+      <div (click)="GetMealByCategory('Seafood')"><span>Seafood</span></div>
+      <div (click)="GetMealByCategory('Meat')"><span>Meat</span></div>
+      <div (click)="GetMealByCategory('Pasta')"><span>Pasta</span></div>
+      <div (click)="GetMealByCategory('Vegetarian')">
+        <span>Vegetarian</span>
+      </div>
+      <div (click)="GetMealByCategory('Vegan')"><span>Vegan</span></div>
+      <div (click)="GetMealByCategory('Side')"><span>Side dish</span></div>
+      <div (click)="GetMealByCategory('Dessert')"><span>Dessert</span></div>
+      <div (click)="GetMealByCategory('Breakfast')">
+        <span>Breakfast</span>
+      </div>
+      </div>
+</mat-card-content> -->
+</mat-card>
+ <div>
+   <!-- <mat-card >
+
+    <mat-card-content class="favourites"  *ngIf="!isLoading"> -->
+      <mat-card  style="width: 500px;">
+            <mat-card-content class="favourites"  *ngIf="!isLoading">
+
+       <h2>{{ meal.title }}</h2>
+ <img class="w-100 mb-2" src="{{ meal.imgSrc }}" />
+ <mat-card-content>
+          <div class="card-detail">
+            <p><strong>Category: </strong>{{ meal.category }}</p>
+      <p><strong>Area: </strong>{{ meal.area }}</p>
+      <p *ngIf="meal.tags"><strong>Tags: </strong>{{ meal.tags }}</p>
+      <!-- Ingredients -->
+      <span class="ingredients-title"><strong>Ingredients:</strong></span>
+      <ul>
+        <li *ngFor="let ingredient of meal.ingredients">{{ ingredient }}</li>
+      </ul>
+    </div>
+    <!-- Recipe -->
+    <div class="col-12 col-md-7 recipe__container">
+      <!-- <h2>{{ meal.title }}</h2> -->
+       <span class="recipe"><strong>Recipe: </strong></span>
+      <span>{{ meal.recipe }}</span>
+    </div>
+
+  <div class="row videoWrapper" *ngIf="!isLoading">
+    <iframe
+      width="420"
+      height="315"
+      [src]="safeUrl"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+         </div>
+         <button mat-raised-button color="primary" (click)="addToFav()">Add to favourites </button>
+        </mat-card-content>
+         </mat-card-content>
+      </mat-card>
+
+  <!-- </mat-card> -->
+</div>
+<!-- <app-category></app-category> -->
+

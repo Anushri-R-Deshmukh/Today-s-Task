@@ -1,0 +1,28 @@
+<div class="container">
+  <h3>Pan Card Validation</h3>
+<form class="example-form" [formGroup]="panNoValidation">
+
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="name">
+    <mat-error *ngIf="panNoValidation.get('name').hasError('required')">
+      First Name is Required!
+    </mat-error>
+
+    <mat-error *ngIf="panNoValidation.get('name').hasError('pattern')">
+      First Name must follow  pattern!
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input class="uppercase" matInput placeholder="Pan Number" formControlName="panNo">
+    <mat-error *ngIf="panNoValidation.get('panNo').hasError('required')">
+      Pan Number is Required!
+    </mat-error>
+
+    <mat-error *ngIf="panNoValidation.get('panNo').hasError('pattern')">
+    Pan no must follow  pattern! first 3 letter are alphabets,4th letter is p 5th letter must mathch from 1st letter from first name next 4 are number and last one is alphabets.
+    </mat-error>
+  </mat-form-field>
+
+</form>
+</div>

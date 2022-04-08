@@ -1,0 +1,6 @@
+ <h2>Life Cycle Hooks</h2>
+    <button (click)="toggle()">Hide/Show Child</button>
+    <child-component
+      *ngIf="displayChild"
+      [message]="'Hello'">
+    </child-component>

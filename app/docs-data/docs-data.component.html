@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-content>
+    <div>
+      <section class="section" *ngFor="let result of response;let i=index">
+        <h2>{{result.proof}}</h2>
+        <div *ngFor="let results of response[i].data;let i1=index">
+          <input type="checkbox" [checked]="results.isChecked" (change)="getSelectedValue($event,results,i)">{{results.name}}
+
+        </div>
+
+      </section>
+      <div class="text-danger" *ngIf="!selectedItems">Please select at list one or more document</div>
+    </div>
+    <button  [disabled]="!selectedItems && !checkvalidity"   mat-raised-button color="accent" (click)="openDialog()">Submit</button>
+  </mat-card-content>
+</mat-card>

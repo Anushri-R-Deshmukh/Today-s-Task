@@ -1,0 +1,9 @@
+<mat-form-field>
+<ng-container *ngIf="control?.touched || control?.errors">
+        <div class="error-wrapper">
+            <mat-error *ngIf="control?.touched && control?.hasError('required')">
+                Please Select {{ placeHolder }}
+            </mat-error>
+        </div>
+    </ng-container>
+</mat-form-field>

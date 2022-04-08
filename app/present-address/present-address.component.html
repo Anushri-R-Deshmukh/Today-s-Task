@@ -1,0 +1,32 @@
+<form class="example-form" [formGroup]="preAddressForm "  (ngSubmit)="onSubmit(preAddressForm.value)" >
+  <mat-form-field>
+    <input matInput placeholder="First Name" formControlName="name">
+    <mat-error *ngIf="preAddressForm.get('name').hasError('required')">
+      First Name is Required!
+    </mat-error>
+</mat-form-field>
+
+  <mat-form-field>
+    <input  matInput placeholder="Email" formControlName="email">
+    <mat-error *ngIf="preAddressForm.get('email').hasError('required')">
+      Email is Required!
+    </mat-error>
+</mat-form-field>
+
+<mat-form-field>
+    <input  matInput placeholder="Mobile Number" formControlName="phone">
+    <mat-error *ngIf="preAddressForm.get('phone').hasError('required')">
+      Mobile Number is Required!
+    </mat-error>
+ </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Address" formControlName="address">
+    <mat-error *ngIf="preAddressForm.get('address').hasError('required')">
+      Address is Required!
+    </mat-error>
+ </mat-form-field>
+ <input type="checkbox" (change)="onChecked(preAddressForm.value, $event)"
+          >
+            <!-- <button type="submit" >submit</button> -->
+</form>

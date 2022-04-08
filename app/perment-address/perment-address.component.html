@@ -1,0 +1,25 @@
+<form [formGroup]="registerForm">
+  <mat-form-field>
+    <input matInput placeholder="First Name" class="form-control" name="name" #name="">
+
+</mat-form-field>
+
+  <mat-form-field>
+    <input  matInput placeholder="Email" class="form-control" name="email">
+
+</mat-form-field>
+
+<mat-form-field>
+    <input  matInput placeholder="Mobile Number" class="form-control" name="phone">
+
+ </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Address" class="form-control" name="address">
+
+ </mat-form-field>
+
+</form>
+
+<h4>Peremenant Address</h4>
+{{formData|json}}

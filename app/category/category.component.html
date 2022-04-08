@@ -1,0 +1,23 @@
+<!-- {{categiries|json}} -->
+ <div class="container d-flex" >
+
+<mat-card class="data" *ngFor="let item of categiries" (click)="addQueryParam(item)">
+ <mat-card-content >
+    <img src="{{item.strCategoryThumb}}" alt="">
+   <p> {{item.idCategory}}</p>
+   <p>{{item.strCategory}}</p>
+  </mat-card-content>
+</mat-card>
+</div>
+<div>
+ <mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-tile
+      *ngFor="let tile of categiries"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+    >
+    <img src="{{tile.strCategoryThumb}}" alt="">
+   <p> {{tile.idCategory}}</p>
+   <p>{{tile.strCategory}}</p>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,52 @@
+<!-- {{results|json}} -->
+
+<h2>Food search</h2>
+	<form class="example-form">
+		<mat-form-field class="example-full-width">
+			<input matInput [(ngModel)]="searchTerm"
+      name="searchTerm"
+      placeholder="Food name or id for search">
+    </mat-form-field>
+			<button (click)="doSearch(searchTerm)" mat-raised-button color="primary">Search by name</button>
+      <button (click)="doSearchId(searchTerm)" mat-raised-button color="primary">Search by Id</button>
+
+	</form>
+
+  <ng-container >
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                           <th>Sr No.</th>
+                            <th>Meal Name</th>
+                            <th>Meal Image</th>
+                            <!-- <th>Description</th> -->
+                            <!-- <th>Ingredients</th> -->
+                             <th>Category</th>
+                            <th>Area</th>
+                            <th>Vedio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let datas of results; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{datas.title}}</td>
+                            <td><img style="width: 120px;" src="{{datas.imgSrc }}" alt=""></td>
+                            <!-- <td style="width: 25%;">{{datas.recipe}}</td> -->
+                            <!-- <th style="width: 12%;">{{datas.category}}</th>
+                            <td style="width: 12%;">{{datas.area}}</td>
+                            <td style="width: 12%;">{{datas.video}}</td>
+
+
+
+
+                        </tr> --> -->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>

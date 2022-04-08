@@ -1,0 +1,17 @@
+.data {
+  width: 350px;
+ margin: 50px;
+ margin-left: 15%;
+ background-color: yellow;
+}
+.matCard{
+  width: 600px;
+  margin: 50px;
+  margin: 30px;
+  margin-left: 25%;
+  margin-top: 10%;
+
+}
+#btn{
+  margin-left: 80%;
+}

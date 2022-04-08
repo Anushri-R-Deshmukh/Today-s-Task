@@ -1,0 +1,35 @@
+<div class="container" >
+  <form [formGroup]="registerForm" (ngSubmit)=" onSubmit(registerForm.value)" novalidate>
+
+        <!-- Name -->
+        <mat-form-field  >
+          <input  matInput placeholder="Name" formControlName="name" >
+          <mat-error>This field is mandatory.</mat-error>
+          <!-- <mat-error *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched">
+              Name is required
+          </mat-error> -->
+        </mat-form-field>
+         <!-- Email -->
+
+        <mat-form-field  appearance="fill">
+            <mat-select formControlName="occasion" placeholder="Occasion">
+              <mat-option>Select one</mat-option>
+              <ng-container *ngFor="let department of occasions">
+                <mat-option value="{{department.value}}">{{department.value}}</mat-option>
+              </ng-container>
+            </mat-select>
+            <mat-error>Please select at list one occasion</mat-error>
+
+          </mat-form-field>
+
+<!-- Date picker  -->
+        <mat-form-field appearance="fill">
+          <input matInput readonly [matDatepicker]="picker" placeholder="Date of occasion" formControlName="date"
+            (dateChange)="date($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+ <button  mat-raised-button color="accent" >Proceed</button>
+      </form>
+</div>

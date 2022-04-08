@@ -1,0 +1,146 @@
+
+ <div> 
+<mat-card-content>
+    <form [formGroup]="registerForm" (ngSubmit)=" onSubmit()" novalidate>
+        
+       
+        <!-- name -->
+         
+        <mat-form-field >
+          <input type="text" matInput placeholder="Name" formControlName="name">
+          <mat-error>This field is mandatory.</mat-error>
+
+        </mat-form-field>
+  
+       
+        <!-- age -->
+         <mat-form-field >
+            <input type="number" matInput placeholder="Age" formControlName="age">
+            <mat-error>This field is mandatory.</mat-error>
+
+          </mat-form-field>
+
+
+         <!--department-->
+
+         <mat-form-field>
+            <mat-select formControlName="department" placeholder="Department">
+              <mat-option>Select one</mat-option>
+              <ng-container *ngFor="let department of departments">
+                <mat-option value="{{department.value}}">{{department.value}}</mat-option>
+              </ng-container>
+            </mat-select>
+            <mat-error>Please select at list one department</mat-error>
+
+          </mat-form-field>
+  
+        <!-- Gender -->
+
+        <div class="misc-bottom-padding">
+          <mat-label type="radio">Gender:</mat-label>
+          <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+
+          </mat-radio-group>
+        </div>
+         
+         <!-- Submit --->
+        
+          <button  mat-raised-button color="accent"  >Submit</button>
+         <!----  <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+         <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>-->
+
+      </form>
+    
+    </mat-card-content>
+  </div> 
+  <br>
+
+ <!---table--
+
+ <div class="table-container" >
+   <table mat-table [dataSource]="formData"  class="mat-elevation-z8" *ngFor="let element of formData;let i = index " >
+    
+   
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element"> {{element.i+1}} </td>
+    </ng-container>
+    <!-- Name Column -
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+        
+    <!-- Age Column --
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+        
+    <!-- Gender Column --
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+         
+    <!--Department Column --
+
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+         
+    <!-- action Column --
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element" class="action-link"> 
+            <button mat-raised-button color="accent" (click)="onUpdate(i)">Edit</button>
+            <button mat-raised-button color="warn" (click)="onDelete(i)">Delete</button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      </div>-->
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>Sr No</th>
+                    <th >Full Name</th>
+                    <th >Age</th>
+                    <th >Department</th>
+                    <th >Gender</th>
+                    <th >Action</th>
+                    
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr *ngFor="let data of formData; let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{data.name}}</td>
+                  <td>{{data.age}}</td>
+                  <td>{{data.department}}</td>
+                  <td>{{data.gender}}</td>
+                  
+                  <button mat-icon-button color="accent" (click)="onUpdate(data,i)">
+                    <mat-icon aria-label="Edit">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn" (click)="onDelete(i)">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+                  </button>
+                  
+                </tr>
+              </tbody>
+        
+        </table>
+    </div>

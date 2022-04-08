@@ -1,0 +1,67 @@
+<!-- <div class="container" >
+  <!-- <h1>{{result.proof}}</h1> -->
+
+  <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+    <div *ngFor="let result of response">
+    <h1>{{result.proof}}</h1>
+    <label formArrayName="datas" *ngFor="let dat of ordersFormArray.controls; let i = index">
+      <input type="checkbox" [formControlName]="i" >
+      {{response[i].name}}<br>
+    </label>
+
+    <br/>
+
+    </div>
+    <button class="btn btn-success">submit</button>
+  </form>
+</div> -->
+
+<div class="container">
+
+    <form [formGroup]="form" (ngSubmit)="submit(form.value)" novalidate>
+
+        <div class="form-group" formArrayName="datas">
+          <div *ngFor="let result of response,let i = index" >
+            <h2>{{result.proof}}</h2>
+            <div *ngFor="let web of result.data, let i1=index" >
+              <label>
+                <input type="checkbox"  [value]="web.id" [checked]="result.isChecked" (change)="onCheckboxChange($event)" />
+                {{web.name}}
+              </label>
+            </div>
+
+        </div>
+         </div>
+         <!-- <p class="error" *ngIf="this.form.controls['datas'].errors?.required">
+    Checkbox value is required.
+  </p> -->
+<!-- <div class="invalid-feedback" *ngIf="form.controls['datas'].errors && form.controls['datas'].errors.requireOneCheckboxToBeChecked">At least one checkbox is required to check</div> -->
+
+
+         <div *ngIf="!checkValidity">
+           <p style="color:red;">Please select atlist one or more document form each category to proceed further<br></p>
+       </div>
+
+        <button class="btn btn-primary" type="submit"  >Submit</button>
+    </form>
+</div>
+<!-- -------------------------
+<div class="container">
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+          <div *ngFor="let result of response,let i = index">
+            <h3>{{result.proof}}</h3>
+            <mat-selection-list  *ngFor="let web of result.data"   >
+  <mat-list-option   [value]="web.name"  checkboxPosition="before"  [selected]="result.isChecked" (change)="onCheckboxChange($event)">
+    {{web.name}}
+  </mat-list-option>
+</mat-selection-list>
+        </div>
+         </div>
+         <!-- <mat-error *ngIf="form.get('datas').hasError('required')">
+Please select atlist one or more document form each category to proceed further    </mat-error><br> -->
+        <!-- <button  type="submit" mat-raised-button color="accent" [disabled]="!form.valid">Submit</button>
+    </form>
+</div> --> -->

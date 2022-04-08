@@ -1,0 +1,5 @@
+{
+    "users":[
+        {"name":"anu", "age":25, "gender":"Male", "department":"CSE"}
+    ]
+}
